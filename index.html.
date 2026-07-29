@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.N.E.O.N.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="bootScreen">
+    <div class="core"></div>
+
+    <h1>I.N.E.O.N.</h1>
+
+    <p id="loadingText">Initializing Neural Engine...</p>
+
+    <div class="bar">
+        <div class="progress"></div>
+    </div>
+</div>
+
+<div id="dashboard">
+
+    <header>
+        <h1>I.N.E.O.N.</h1>
+
+        <select id="themeSelector">
+            <option value="green">🟢 Green</option>
+            <option value="blue">🔵 Blue</option>
+            <option value="purple">🟣 Purple</option>
+            <option value="red">🔴 Red</option>
+            <option value="gold">🟡 Gold</option>
+        </select>
+    </header>
+
+    <div class="welcome">
+        <h2>Welcome Nehemiah,</h2>
+        <p>What's on your mind today?</p>
+    </div>
+
+    <div class="chatBox">
+        <div class="botMessage">
+            Hello! I'm I.N.E.O.N. Ready whenever you are.
+        </div>
+    </div>
+
+    <div class="inputArea">
+        <input type="text" placeholder="Ask I.N.E.O.N. anything...">
+        <button>🎤</button>
+        <button>➤</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

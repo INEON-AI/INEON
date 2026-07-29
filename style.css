@@ -1,0 +1,198 @@
+:root{
+    --accent:#00ff88;
+}*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#050505;
+    color: var(--accent);
+    overflow:hidden;
+}
+
+/* ---------- Boot Screen ---------- */
+
+#bootScreen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.core{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:5px solid #00ff88;
+    box-shadow:
+        0 0 20px #00ff88,
+        0 0 60px #00ff88;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+box-shadow:0 0 20px #00ff88;
+}
+
+50%{
+transform:scale(1.08);
+box-shadow:
+0 0 40px #00ff88,
+0 0 90px #00ff88;
+}
+
+100%{
+transform:scale(1);
+box-shadow:0 0 20px #00ff88;
+}
+
+}
+
+#bootScreen h1{
+    margin-top:25px;
+    font-size:42px;
+    letter-spacing:5px;
+}
+
+#loadingText{
+    margin:20px;
+}
+
+.bar{
+    width:300px;
+    height:10px;
+    background:#222;
+    border-radius:20px;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:#00ff88;
+    border-radius:20px;
+    animation:load 4s forwards;
+}
+
+@keyframes load{
+
+from{
+width:0%;
+}
+
+to{
+width:100%;
+}
+
+}
+
+/* ---------- Dashboard ---------- */
+
+#dashboard{
+    display:none;
+    padding:25px;
+    height:100vh;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header h1{
+    font-size:36px;
+}
+
+select{
+    background:#111;
+    color:#00ff88;
+    border:2px solid #00ff88;
+    padding:10px;
+    border-radius:10px;
+}
+
+.welcome{
+    margin-top:30px;
+}
+
+.chatBox{
+
+margin-top:25px;
+
+height:55vh;
+
+background:#111;
+
+border:2px solid #00ff88;
+
+border-radius:20px;
+
+padding:20px;
+
+overflow:auto;
+
+}
+
+.botMessage{
+
+background:#0d2a17;
+
+padding:15px;
+
+border-radius:12px;
+
+width:max-content;
+
+max-width:80%;
+
+}
+
+.inputArea{
+
+display:flex;
+
+margin-top:20px;
+
+gap:10px;
+
+}
+
+input{
+
+flex:1;
+
+padding:15px;
+
+border-radius:12px;
+
+border:none;
+
+font-size:16px;
+
+}
+
+button{
+
+width:60px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:22px;
+
+background:#00ff88;
+
+cursor:pointer;
+
+}
