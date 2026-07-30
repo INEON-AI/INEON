@@ -51,3 +51,78 @@ theme.addEventListener("change", function () {
          0 0 60px ${color}`;
 
 });
+
+// ===============================
+// I.N.E.O.N. AI Chat
+// ===============================
+
+const input = document.getElementById("userInput");
+const sendButton = document.getElementById("sendButton");
+const chatBox = document.querySelector(".chatBox");
+
+async function sendMessage() {
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    // Show user's message
+    chatBox.innerHTML += `
+        <div class="userMessage">
+            ${message}
+        </div>
+    `;
+
+    input.value = "";
+
+    // Show loading message
+    chatBox.innerHTML += `
+        <div class="botMessage" id="loading">
+            I.N.E.O.N. is thinking...
+        </div>
+    `;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+
+        const response = await fetch("/api/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        });
+
+        const data = await response.json();
+
+        document.getElementById("loading").remove();
+
+        chatBox.innerHTML += `
+            <div class="botMessage">
+                ${data.reply}
+            </div>
+        `;
+
+    } catch (err) {
+
+        document.getElementById("loading").remove();
+
+        chatBox.innerHTML += `
+            <div class="botMessage">
+                Error connecting to AI.
+            </div>
+        `;
+    }
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+sendButton.addEventListener("click", sendMessage);
+
+input.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        sendMessage();
+    }
+});
