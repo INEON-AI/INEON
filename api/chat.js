@@ -1,6 +1,8 @@
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      reply: "Method not allowed."
+    });
   }
 
   const { message } = req.body;
@@ -9,15 +11,15 @@ export default async function handler(req, res) {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         model: "gpt-4.1-mini",
         messages: [
           {
             role: "system",
-            content: "You are INEON, a futuristic AI assistant that is intelligent, helpful, and friendly."
+            content: "You are I.N.E.O.N., a futuristic AI assistant. Be friendly, intelligent, and concise."
           },
           {
             role: "user",
@@ -35,7 +37,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     res.status(500).json({
-      error: "Something went wrong."
+      reply: "Sorry, I couldn't reach the AI."
     });
   }
-      }
+              }
