@@ -30,7 +30,9 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
+console.log(data);
 
+if (!response.ok) throw new Error(JSON.stringify(data));
     res.status(200).json({
       reply: data.choices[0].message.content
     });
